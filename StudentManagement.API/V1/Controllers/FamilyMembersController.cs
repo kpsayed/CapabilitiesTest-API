@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using static StudentManagement.Application.DTOs.FamilyDto;
 using StudentManagement.Application.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace StudentManagement.API.V1.Controllers
 {
@@ -23,6 +24,7 @@ namespace StudentManagement.API.V1.Controllers
 
         #region Updates a particular Family Member
         [HttpPut("{id})")]
+        [Authorize(Roles = "Registrar")]
         public async Task<IActionResult> UpdateFamilyMember(int id, [FromBody] FamilyMemberRequestDto request)
         {
             if (request == null)
@@ -37,6 +39,7 @@ namespace StudentManagement.API.V1.Controllers
 
         #region Deletes a family member for a particular Student
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Registrar")]
         public async Task<IActionResult> DeleteFamilyMember(int id)
         {
             var isDeleted = await _familyServices.DeleteFamilyMemberAsync(id);
@@ -51,6 +54,7 @@ namespace StudentManagement.API.V1.Controllers
         #region Gets a nationality associated with a family member
 
         [HttpGet("{familyMemberId}/Nationality/{nationalityId}")]
+        [Authorize]
         public async Task<IActionResult> GetFamilyMemberNationality(int familyMemberId, int nationalityId)
         {
             var familyMember = await _familyServices.GetFamilyMemberWithNationalityAsync(familyMemberId);
@@ -65,6 +69,7 @@ namespace StudentManagement.API.V1.Controllers
 
         #region Updates a particular Family Member’s Nationality
         [HttpPut("{familyMemberId}/Nationality/{nationalityId}")]
+        [Authorize(Roles = "Registrar")]
         public async Task<IActionResult> UpdateFamilyMemberNationality(int familyMemberId, int nationalityId)
         {
             var ResponseDto = await _familyServices.UpdateFamilyMemberNationalityAsync(familyMemberId, nationalityId);

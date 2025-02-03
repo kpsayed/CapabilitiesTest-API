@@ -7,7 +7,7 @@ namespace StudentManagement.API.AuthenticationHandler
 {
     public static class JwtAuthenticationExtension
     {
-        public static void AddJwtAuthentication(this IServiceCollection services, string issuer, string audience, string secret, string UserJwt_Key, string UserJwt_audience)
+        public static void AddJwtAuthentication(this IServiceCollection services, string issuer, string audience, string secret)
         {
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

@@ -48,15 +48,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
     #region set jwt key
-    var _key = "Yh2k7QSu4l8CZg5p6X3Pna9L0Miy4D3Bvt0JVr87UcOj69Kqw5R2Nmf4FWs03Hdx";
-    var _issuer = "AWQAFSSO";
-    var _audience = "AWQAFClients";
-
-    var _UserJwt_Key = "QVdRQUZTU09fREVWRUxPUEVEQllfU0FZRURLQUxMRVRUVVBBTEFN";
-    var _UserJwt_audience = "Awqaf_EndUsers";
-
-    //builder.Services.AddJwtAuthentication(builder.Configuration["Jwt:Issuer"], builder.Configuration["Jwt:Audience"], builder.Configuration["Jwt:Key"]);
-    builder.Services.AddJwtAuthentication(_issuer, _audience, _key, _UserJwt_Key, _UserJwt_audience);
+    builder.Services.AddJwtAuthentication(builder.Configuration["JwtSettings:Issuer"], builder.Configuration["JwtSettings:Audience"], builder.Configuration["JwtSettings:Key"]);
     #endregion
 
 
@@ -105,6 +97,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 
     //builder.Services.AddSingleton<ILoggerManager, LoggerManager>();
+    builder.Services.AddScoped<IAuthServices, AuthServices>();
+    builder.Services.AddScoped<IAuthRepository, AuthRepository>();
+
     builder.Services.AddScoped<IStudentRepository, StudentRepository>();
     builder.Services.AddScoped<IStudentServices, StudentServices>();
     builder.Services.AddScoped<IFamilyRepository, FamilyRepository>();

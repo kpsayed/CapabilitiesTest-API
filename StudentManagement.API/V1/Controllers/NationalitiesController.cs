@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using StudentManagement.Application.Services.Interfaces;
 
 namespace StudentManagement.API.V1.Controllers
@@ -21,6 +22,7 @@ namespace StudentManagement.API.V1.Controllers
 
         #region Gets all nationalities in the system
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAllNationalities()
         {
             try
