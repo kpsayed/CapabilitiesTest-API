@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using static StudentManagement.Application.DTOs.FamilyDto;
 using StudentManagement.Application.Services.Interfaces;
-using StudentManagement.Application.Services;
 
 namespace StudentManagement.API.V1.Controllers
 {

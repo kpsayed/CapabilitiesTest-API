@@ -2,7 +2,6 @@
 using StudentManagement.Application.Services.Interfaces;
 using StudentManagement.Application.DTOs;
 using static StudentManagement.Application.DTOs.FamilyDto;
-using StudentManagement.Application.Services;
 
 namespace StudentManagement.API.V1.Controllers
 {
