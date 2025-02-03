@@ -1,21 +1,19 @@
 
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using StudentManagement.API.AuthenticationHandler;
 using StudentManagement.API.Helpers;
-using StudentManagement.Application.Services;
-using StudentManagement.Application.Services.Interfaces;
-using StudentManagement.Domain.Interfaces;
 using StudentManagement.Persistance;
-using StudentManagement.Persistance.Repositories;
+using StudentManagement.Application.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 {
     ConfigurationManager configuration = builder.Configuration;
+
+    builder.Services.AddApplications();
 
     //var logger = LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
     builder.Services.AddDbContext<StudentManagementDbContext>(options =>
@@ -96,16 +94,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 
-    //builder.Services.AddSingleton<ILoggerManager, LoggerManager>();
-    builder.Services.AddScoped<IAuthServices, AuthServices>();
-    builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 
-    builder.Services.AddScoped<IStudentRepository, StudentRepository>();
-    builder.Services.AddScoped<IStudentServices, StudentServices>();
-    builder.Services.AddScoped<IFamilyRepository, FamilyRepository>();
-    builder.Services.AddScoped<IFamilyServices, FamilyServices>();
-    builder.Services.AddScoped<IMasterRepository, MasterRepository>();
-    builder.Services.AddScoped<IMastersServices, MastersServices>();
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddAutoMapper(typeof(Program).Assembly);
     builder.Services.AddControllers();
