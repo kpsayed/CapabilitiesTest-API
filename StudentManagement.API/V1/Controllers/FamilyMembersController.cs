@@ -50,6 +50,7 @@ namespace StudentManagement.API.V1.Controllers
         #endregion
 
         #region Gets a nationality associated with a family member
+
         [HttpGet("{familyMemberId}/Nationality/{nationalityId}")]
         public async Task<IActionResult> GetFamilyMemberNationality(int familyMemberId, int nationalityId)
         {

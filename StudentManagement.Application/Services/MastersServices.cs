@@ -17,6 +17,7 @@ namespace StudentManagement.Application.Services
             _masterRepository = masterRepository;
         }
         #endregion
+
         #region Nationality
         public async Task<IEnumerable<DropdownResponseDto>> GetAllNationalities()
         {

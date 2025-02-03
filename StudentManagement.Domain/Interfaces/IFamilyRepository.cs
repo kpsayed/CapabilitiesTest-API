@@ -6,16 +6,16 @@ namespace StudentManagement.Domain.Interfaces
     public interface IFamilyRepository
     {
 
-        #region PUT
+        #region Put Methods
         Task<FamilyMember> UpdateFamilyMemberAsync(int id, FamilyMember updatedFamilyMember);
         Task<FamilyMember> UpdateFamilyMemberNationalityAsync(int familyMemberId, int nationalityId);
         #endregion
 
-        #region DELETE
+        #region Delete Methods
         Task<bool> DeleteFamilyMemberAsync(int id);
         #endregion
 
-        #region GET
+        #region Get Methods
         Task<FamilyMember> GetFamilyMemberWithNationalityAsync(int familyMemberId);
         #endregion
 

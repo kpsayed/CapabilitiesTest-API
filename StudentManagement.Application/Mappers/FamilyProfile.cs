@@ -1,10 +1,5 @@
 ﻿using AutoMapper;
 using StudentManagement.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static StudentManagement.Application.DTOs.FamilyDto;
 
 namespace StudentManagement.Application.Mappers
@@ -13,9 +8,6 @@ namespace StudentManagement.Application.Mappers
     {
         public FamilyProfile()
         {
-
-            //CreateMap<ViewStudentRelatives, FamilyMemberDto>().AfterMap((r, b) => b.ID = r.StudentID);
-
             #region Updates a particular Family Member
             CreateMap<FamilyMemberRequestDto, FamilyMember>()
                 .AfterMap((r, b) => b.MemberFirstName = r.FirstName).AfterMap((r, b) => b.MemberLastName = r.LastName)
@@ -60,19 +52,5 @@ namespace StudentManagement.Application.Mappers
             return Mapper.Map<MemberNationalityResponseDto>(dto);
         }
         #endregion
-        //public static IEnumerable<FamilyMemberDto> ToModel(this List<ViewStudentRelatives> dto)
-        //{
-        //    return Mapper.Map<IEnumerable<FamilyMemberDto>>(dto);
-        //}
-        //public static FamilyMember ToEntity(this FamilyMemberRequestDto dto)
-        //{
-        //    return Mapper.Map<FamilyMember>(dto);
-        //}
-        //public static FamilyMemberResponseDto ToModel(this FamilyMember dto)
-        //{
-        //    return Mapper.Map<FamilyMemberResponseDto>(dto);
-        //}
-
-
     }
 }

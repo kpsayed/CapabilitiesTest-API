@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace StudentManagement.Application.DTOs
 {
     public class FamilyDto
@@ -12,7 +7,6 @@ namespace StudentManagement.Application.DTOs
         #region Requests
         public class FamilyMemberRequestDto
         {
-            //Updates a particular Family Member || Gets a nationality associated with a family member
             public string FirstName { get; set; }
             public string LastName { get; set; }
             public DateTime DateOfBirth { get; set; }
@@ -22,7 +16,7 @@ namespace StudentManagement.Application.DTOs
         #endregion
 
         #region Responses
-        public class FamilyMemberResponseDto //Updates a particular Family Member 
+        public class FamilyMemberResponseDto 
         {
             public int ID { get; set; }
             public string FirstName { get; set; }
@@ -30,7 +24,7 @@ namespace StudentManagement.Application.DTOs
             public DateTime? DateOfBirth { get; set; }
             public int? RelationshipId { get; set; }
         }
-        public class MemberNationalityResponseDto //Gets a nationality associated with a family member
+        public class MemberNationalityResponseDto
         {
             public int ID { get; set; }
             public string FirstName { get; set; }

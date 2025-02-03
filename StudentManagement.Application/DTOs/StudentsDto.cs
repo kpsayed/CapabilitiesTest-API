@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace StudentManagement.Application.DTOs
 {
+    #region Requests
     public class StudentRequestDto
     {
         public string FirstName { get; set; }
@@ -19,9 +15,9 @@ namespace StudentManagement.Application.DTOs
         public string? lastName { get; set; }
         public DateTime? dateOfBirth { get; set; }
     }
+    #endregion
 
-
-
+    #region Response's
     public class StudentResponseDto
     {
         public int ID { get; set; }
@@ -29,7 +25,6 @@ namespace StudentManagement.Application.DTOs
         public string? lastName { get; set; }
         public string? dateOfBirth { get; set; }
     }
-
     public class StudentNationalityUpdateResponseDto
     {
         public int ID { get; set; }
@@ -37,7 +32,6 @@ namespace StudentManagement.Application.DTOs
         public string lastName { get; set; }
         public int NationalityId { get; set; }
     }
-
     public class FamilyMemberNationResponseDto
     {
         public int ID { get; set; }
@@ -47,6 +41,6 @@ namespace StudentManagement.Application.DTOs
         public int? RelationshipId { get; set; }
         public int? NationalityId { get; set; }
     }
-
+    #endregion
 
 }

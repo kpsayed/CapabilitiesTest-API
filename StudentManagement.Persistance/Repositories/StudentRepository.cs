@@ -21,7 +21,7 @@ namespace StudentManagement.Persistance.Repositories
         }
         #endregion
 
-        #region GET
+        #region Get Methods
         public async Task<List<MstStudents>> GetAllStudentsAsync()
         {
             var list = new List<MstStudents>();
@@ -63,17 +63,13 @@ namespace StudentManagement.Persistance.Repositories
         }
         #endregion
 
-        #region POST
+        #region Post Methods
         public async Task<MstStudents> AddStudentAsync(MstStudents student)
         {
             _studentDbContext.MstStudents.Add(student);
             await _studentDbContext.SaveChangesAsync();
             return student;
         }
-
-
-
-
         public async Task<FamilyMember> AddFamilyMemberAsync(int studentId, FamilyMember familyMember)
         {
             familyMember.StudentID = studentId;
@@ -81,15 +77,9 @@ namespace StudentManagement.Persistance.Repositories
             await _studentDbContext.SaveChangesAsync();
             return familyMember;
         }
-
-
-
-
-
-
         #endregion
 
-        #region PUT
+        #region Put Methods
         public async Task<MstStudents> UpdateStudentAsync(MstStudents student)
         {
             var existingStudent = await _studentDbContext.MstStudents.FindAsync(student.StudentAID);

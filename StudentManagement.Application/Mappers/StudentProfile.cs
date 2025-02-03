@@ -1,11 +1,6 @@
 ﻿using AutoMapper;
 using StudentManagement.Application.DTOs;
 using StudentManagement.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static StudentManagement.Application.DTOs.FamilyDto;
 
 namespace StudentManagement.Application.Mappers
@@ -21,20 +16,20 @@ namespace StudentManagement.Application.Mappers
 
 
             CreateMap<StudentRequestDto, MstStudents>()
-         .AfterMap((r, b) => b.DOB = r.DateOfBirth);
+           .AfterMap((r, b) => b.DOB = r.DateOfBirth);
             CreateMap<StudentUpdateRequestDto, MstStudents>()
-                .AfterMap((r, b) => b.DOB = r.dateOfBirth)
-                   .AfterMap((r, b) => b.StudentAID = r.ID);
+            .AfterMap((r, b) => b.DOB = r.dateOfBirth)
+            .AfterMap((r, b) => b.StudentAID = r.ID);
 
 
             CreateMap<MstStudents, StudentNationalityUpdateResponseDto>()
-          .AfterMap((r, b) => b.ID = r.StudentAID);
+           .AfterMap((r, b) => b.ID = r.StudentAID);
 
 
             CreateMap<ViewStudentRelatives, FamilyMemberNationResponseDto>();
 
             CreateMap<ViewStudentRelatives, FamilyMemberResponseDto>()
-  .AfterMap((r, b) => b.ID = r.MemberAID);
+           .AfterMap((r, b) => b.ID = r.MemberAID);
             
         }
     }
@@ -46,9 +41,6 @@ namespace StudentManagement.Application.Mappers
                .CreateMapper();
         }
         internal static IMapper Mapper { get; }
-
-
-
 
         public static IEnumerable<StudentResponseDto> To_Model(this List<MstStudents> dto)
         {
@@ -72,8 +64,6 @@ namespace StudentManagement.Application.Mappers
         {
             return Mapper.Map<StudentNationalityUpdateResponseDto>(dto);
         }
-
-
         public static IEnumerable<FamilyMemberResponseDto> ToModel(this List<ViewStudentRelatives> dto)
         {
             return Mapper.Map<IEnumerable<FamilyMemberResponseDto>>(dto);

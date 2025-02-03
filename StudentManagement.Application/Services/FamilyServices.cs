@@ -1,11 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using StudentManagement.Application.Services.Interfaces;
+﻿using StudentManagement.Application.Services.Interfaces;
 using StudentManagement.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using StudentManagement.Application.Mappers;
 using static StudentManagement.Application.DTOs.FamilyDto;
 
@@ -41,9 +35,7 @@ namespace StudentManagement.Application.Services
             return isDeleted;
         }
         #endregion
-        #region Gets a nationality associated with a family member
 
-        #endregion
         #region Gets a nationality associated with a family membery
         public async Task<MemberNationalityResponseDto> GetFamilyMemberWithNationalityAsync(int familyMemberId)
         {

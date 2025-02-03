@@ -20,9 +20,7 @@ namespace StudentManagement.Persistance.Repositories
         }
         #endregion
 
-
-
-        #region PUT
+        #region Put Methods
         public async Task<FamilyMember> UpdateFamilyMemberAsync(int id, FamilyMember updatedFamilyMember)
         {
             var existingFamilyMember = await _studentDbContext.FamilyMember.FindAsync(id);
@@ -58,7 +56,7 @@ namespace StudentManagement.Persistance.Repositories
         }
         #endregion
 
-        #region DELETE
+        #region Delete Methods
         public async Task<bool> DeleteFamilyMemberAsync(int id)
         {
             bool _status = false;
@@ -82,7 +80,7 @@ namespace StudentManagement.Persistance.Repositories
         }
         #endregion
 
-        #region GET
+        #region Get Methods
         public async Task<FamilyMember> GetFamilyMemberWithNationalityAsync(int familyMemberId)
         {
             var _familyMember = new FamilyMember();

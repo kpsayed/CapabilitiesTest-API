@@ -1,15 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using StudentManagement.Application.DTOs;
+﻿using StudentManagement.Application.DTOs;
 using StudentManagement.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 using StudentManagement.Application.Mappers;
-using StudentManagement.Domain.Models;
-using Microsoft.AspNetCore.Http;
 using StudentManagement.Application.Services.Interfaces;
 using static StudentManagement.Application.DTOs.FamilyDto;
 
@@ -36,7 +27,6 @@ namespace StudentManagement.Application.Services
         }
         #endregion
 
-
         #region Add a new Student with Basic Details Only
         public async Task<StudentResponseDto> AddStudentAsync( StudentRequestDto request)
         {
@@ -48,7 +38,6 @@ namespace StudentManagement.Application.Services
 
         #endregion
 
-
         #region Updates a Student’s Basic Details only
         public async Task<StudentResponseDto> UpdateStudentAsync(int id, StudentUpdateRequestDto model)
         {
@@ -58,8 +47,6 @@ namespace StudentManagement.Application.Services
             return dto;
         }
         #endregion
-
-
 
         #region Gets the Nationality of a particular student
         public async Task<StudentNationalityUpdateResponseDto> GetStudentByIdAsync(int id)

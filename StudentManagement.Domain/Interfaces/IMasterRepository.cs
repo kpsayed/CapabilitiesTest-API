@@ -4,7 +4,7 @@ namespace StudentManagement.Domain.Interfaces
 {
     public interface IMasterRepository
     {
-        #region GET
+        #region Get Methods
         Task<List<MstNationalities>> GetAllNationalitiesAsync();
         #endregion
     }
