@@ -24,7 +24,7 @@ namespace StudentManagement.API.V1.Controllers
 
         #region Get all Students
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> GetAllStudents()
         {
             var lstStudents = await _studentServices.GetAllStudentsAsync();
@@ -34,7 +34,7 @@ namespace StudentManagement.API.V1.Controllers
 
         #region Add a new Student with Basic Details Only
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> AddStudent([FromBody] StudentRequestDto studentDto)
         {
             if (ModelState.IsValid)
@@ -50,7 +50,7 @@ namespace StudentManagement.API.V1.Controllers
 
         #region Updates a Student’s Basic Details only
         [HttpPut("{id}")]
-        [Authorize(Roles = "Registrar")]
+        //[Authorize(Roles = "Registrar")]
         public async Task<IActionResult> UpdateStudent(int id, [FromBody] StudentUpdateRequestDto model)
         {
             if (id != model.ID)
@@ -66,7 +66,7 @@ namespace StudentManagement.API.V1.Controllers
 
         #region Gets the Nationality of a particular student
         [HttpGet("{id}/Nationality")]
-        [Authorize]
+        //[Authorize]
         public async Task<ActionResult<StudentNationalityUpdateResponseDto>> GetStudentByIdAsync(int id)
         {
             var dto = await _studentServices.GetStudentByIdAsync(id);
@@ -76,7 +76,7 @@ namespace StudentManagement.API.V1.Controllers
 
         #region Updates a Student’s Nationality
         [HttpPut("{id}/Nationality/{nationalityId}")]
-        [Authorize(Roles = "Registrar")]
+        //[Authorize(Roles = "Registrar")]
         public async Task<ActionResult<StudentNationalityUpdateResponseDto>> UpdateStudentNationality(int id, int nationalityId)
         {
             var updatedStudent = await _studentServices.UpdateStudentNationalityAsync(id, nationalityId);
@@ -89,7 +89,7 @@ namespace StudentManagement.API.V1.Controllers
 
         #region Gets Family Members for a particular Student
         [HttpGet("{id}/FamilyMembers")]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> GetFamilyMembers(int id)
         {
             var familyMembers = await _studentServices.GetRelativesByStudentIdAsync(id);
@@ -102,7 +102,7 @@ namespace StudentManagement.API.V1.Controllers
 
         #region Creates a new Family Member for a particular Student (without the nationality)
         [HttpPost("{id}/FamilyMembers")]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> AddFamilyMember(int id, [FromBody] FamilyMemberRequestDto request)
         {
             if (request == null)

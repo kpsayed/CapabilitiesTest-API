@@ -22,7 +22,7 @@ namespace StudentManagement.API.V1.Controllers
 
         #region Gets all nationalities in the system
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> GetAllNationalities()
         {
             try
